@@ -50,7 +50,6 @@ pause;
 fprintf('Normalizing Features ...\n');
 
 [X mu sigma] = featureNormalize(X);
-
 % Add intercept term to X
 X = [ones(m, 1) X];
 
@@ -82,7 +81,7 @@ X = [ones(m, 1) X];
 fprintf('Running gradient descent ...\n');
 
 % Choose some alpha value
-alpha = 0.01;
+alpha = 1.33;
 num_iters = 400;
 
 % Init Theta and Run Gradient Descent 
@@ -106,6 +105,11 @@ fprintf('\n');
 % not need to be normalized.
 price = 0; % You should change this
 
+predict=([2104,3]-mu)./sigma;
+price=[1,predict]*theta
+
+predict=([1650,3]-mu)./sigma
+price=[1,predict]*theta;
 
 % ============================================================
 
