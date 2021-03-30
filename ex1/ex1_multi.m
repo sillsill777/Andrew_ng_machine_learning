@@ -81,8 +81,8 @@ X = [ones(m, 1) X];
 fprintf('Running gradient descent ...\n');
 
 % Choose some alpha value
-alpha = 1.33;
-num_iters = 400;
+alpha = 0.03;
+num_iters = 10000;
 
 % Init Theta and Run Gradient Descent 
 theta = zeros(3, 1);
@@ -105,10 +105,7 @@ fprintf('\n');
 % not need to be normalized.
 price = 0; % You should change this
 
-predict=([2104,3]-mu)./sigma;
-price=[1,predict]*theta
-
-predict=([1650,3]-mu)./sigma
+predict=([1650,3]-mu)./sigma;
 price=[1,predict]*theta;
 
 % ============================================================
@@ -135,12 +132,12 @@ fprintf('Solving with normal equations...\n');
 
 %% Load Data
 data = csvread('ex1data2.txt');
-X = data(:, 1:2);
-y = data(:, 3);
-m = length(y);
+%X = data(:, 1:2);
+%y = data(:, 3);
+%m = length(y);
 
 % Add intercept term to X
-X = [ones(m, 1) X];
+%X = [ones(m, 1) X];
 
 % Calculate the parameters from the normal equation
 theta = normalEqn(X, y);
@@ -155,6 +152,8 @@ fprintf('\n');
 % ====================== YOUR CODE HERE ======================
 price = 0; % You should change this
 
+predict=([1650,3]-mu)./sigma;
+price=[1,predict]*theta;
 
 % ============================================================
 
