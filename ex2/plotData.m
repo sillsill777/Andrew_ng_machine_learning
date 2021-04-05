@@ -11,12 +11,10 @@ figure; hold on;
 %               2D plot, using the option 'k+' for the positive
 %               examples and 'ko' for the negative examples.
 %
+index_x=find(y==1); index_y=find(y==0);
+plot(X(index_x,1),X(index_x,2),"+k");
 
-
-
-
-
-
+plot(X(index_y,1),X(index_y,2),"ok","markerfacecolor","y");
 
 
 
