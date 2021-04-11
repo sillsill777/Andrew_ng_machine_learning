@@ -40,10 +40,11 @@ grad = zeros(size(theta));
 
 
 
-
-
-
-
+data=sigmoid(X*theta);
+mat=ones(size(theta));
+mat(1)=0;
+J=-1/m*sum((log(data).*y+log(1-data).*(1-y)))+lambda/(2*m)*(sum(mat.*(theta.^2)));
+grad=1/m*(X'*(data-y)+lambda*theta.*mat);
 
 % =============================================================
 
