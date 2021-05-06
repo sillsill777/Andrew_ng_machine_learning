@@ -53,9 +53,14 @@ error_val   = zeros(m, 1);
 
 % ---------------------- Sample Solution ----------------------
 
+options = optimset('MaxIter', 200, 'GradObj', 'on');
 
-
-
+for i=1:m
+  init_theta = zeros(size(X,2),1);  
+  costfunction = @(x) linearRegCostFunction(X(1:i,:),y(1:i),x,lambda);
+  theta = fmincg(costfunction, init_theta, options);
+  error_train(i) = linearRegCostFunction(X(1:i,:),y(1:i),theta,0);
+  error_val(i) = linearRegCostFunction(Xval,yval,theta,0);
 
 
 

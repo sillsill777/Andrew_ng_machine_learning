@@ -21,10 +21,11 @@ grad = zeros(size(theta));
 
 
 
-
-
-
-
+predict=X*theta;
+J=sum((predict-y).^2)/(2*m)+lambda*(sum(theta(2:end).^2))/(2*m);
+mask = ones([length(theta),1]);
+mask(1)=0;
+grad = X'*(predict-y)/m + lambda*theta.*mask/m;
 
 
 
