@@ -13,9 +13,11 @@ X_poly = zeros(numel(X), p);
 % Instructions: Given a vector X, return a matrix X_poly where the p-th 
 %               column of X contains the values of X to the p-th power.
 %
-% 
-
-
+%
+tmp=X;
+for i = 2:p
+  tmp=[tmp, X.^i];
+X_poly=tmp;
 
 
 
