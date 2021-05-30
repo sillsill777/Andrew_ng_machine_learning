@@ -24,8 +24,20 @@ sigma = 0.3;
 %
 
 
-
-
+list = [0.01,0.03,0.1,0.3,1,3,10,30];
+max_error=1
+for cs = list
+  for sigmas = list
+    model=svmTrain(X,y,cs,@(x1,x2)gaussianKernel(x1,x2,sigmas));
+    predic=svmPredict(model, Xval);
+    error=mean(double(predic~=yval));
+    if(error<max_error)
+      C=cs;
+      sigma=sigmas;
+      max_error=error;
+    end
+  end
+end
 
 
 
